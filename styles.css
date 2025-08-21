@@ -58,7 +58,7 @@ section { scroll-margin-top: 88px; }
 .brand { font-weight: 600; letter-spacing: -0.02em; text-decoration: none; color: inherit; }
 
 .nav {
-  display: flex; gap: 1.25rem; align-items: center; overflow-x: auto;
+  display: flex; gap: 1.25rem; align-items: center; overflow-x: hidden;
   color: hsl(220 10% 40%);
 }
 .nav a {
