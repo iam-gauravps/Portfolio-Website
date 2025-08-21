@@ -94,7 +94,11 @@ main { padding: 96px 0 64px; }
 .card:hover { transform: translateY(-2px); background-color: #F5F5DC; }
 
 .hobby-icon { font-size: 24px; display: block; margin: 0 auto .5rem; }
-.hobby-name { font-size: .9rem; color: hsl(220 10% 40%); text-align: center; }
+.hobby-name { font-size: .9rem; color: hsl(220 10% 40%); text-align: center; width: 100%; }
+.hobbies .card {
+  display: flex;
+  align-items: center;
+}
 
 /* Lists */
 .list { display: grid; gap: .75rem; }
