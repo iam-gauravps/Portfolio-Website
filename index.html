@@ -1,0 +1,1270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Founder & Entrepreneur | Co-Founder of Amara Experiences & BrandFrame Studios</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            dark: {
+              900: '#050505',
+              800: '#0a0a0a',
+              700: '#111111',
+              600: '#1a1a1a',
+              500: '#222222',
+            },
+            accent: {
+              gold: '#c9a962',
+              copper: '#b87333',
+              cream: '#f5f0e8',
+            }
+          },
+          fontFamily: {
+            display: ['Syne', 'sans-serif'],
+            body: ['Space Grotesk', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    :root {
+      --bg: #050505;
+      --bg-card: #0d0d0d;
+      --fg: #ffffff;
+      --muted: #666666;
+      --accent: #c9a962;
+      --accent-copper: #b87333;
+      --border: #1a1a1a;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Space Grotesk', sans-serif;
+      background: var(--bg);
+      color: var(--fg);
+      overflow-x: hidden;
+    }
+
+    ::selection {
+      background: var(--accent);
+      color: var(--bg);
+    }
+
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--bg);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--accent);
+      border-radius: 3px;
+    }
+
+    /* Gradient text */
+    .gradient-text {
+      background: linear-gradient(135deg, #c9a962 0%, #f5f0e8 50%, #b87333 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* Animated gradient background */
+    .hero-gradient {
+      position: absolute;
+      inset: 0;
+      background: 
+        radial-gradient(ellipse 80% 50% at 20% 40%, rgba(201, 169, 98, 0.08) 0%, transparent 50%),
+        radial-gradient(ellipse 60% 40% at 80% 60%, rgba(184, 115, 51, 0.06) 0%, transparent 50%),
+        radial-gradient(ellipse 100% 80% at 50% 100%, rgba(201, 169, 98, 0.04) 0%, transparent 40%);
+      animation: gradientShift 15s ease-in-out infinite;
+    }
+
+    @keyframes gradientShift {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.8; transform: scale(1.05); }
+    }
+
+    /* Glassmorphism card */
+    .glass-card {
+      background: rgba(13, 13, 13, 0.6);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .glass-card:hover {
+      border-color: rgba(201, 169, 98, 0.2);
+      background: rgba(20, 20, 20, 0.7);
+    }
+
+    /* Premium button */
+    .btn-premium {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-copper) 100%);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .btn-premium::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, #f5f0e8 0%, var(--accent) 100%);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    .btn-premium:hover::before {
+      opacity: 1;
+    }
+
+    .btn-premium span {
+      position: relative;
+      z-index: 1;
+    }
+
+    .btn-premium:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 20px 40px rgba(201, 169, 98, 0.2);
+    }
+
+    /* Outline button */
+    .btn-outline {
+      position: relative;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .btn-outline::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(255, 255, 255, 0.05);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .btn-outline:hover::before {
+      transform: scaleX(1);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* Reveal animations */
+    .reveal {
+      opacity: 0;
+      transform: translateY(60px);
+    }
+
+    .reveal-left {
+      opacity: 0;
+      transform: translateX(-60px);
+    }
+
+    .reveal-right {
+      opacity: 0;
+      transform: translateX(60px);
+    }
+
+    .reveal-scale {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+
+    /* Floating elements */
+    .float {
+      animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+
+    /* Line animation */
+    .line-reveal {
+      width: 0;
+      transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .line-reveal.active {
+      width: 100%;
+    }
+
+    /* Counter animation */
+    .counter {
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* Magnetic cursor effect */
+    .magnetic {
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* Noise overlay */
+    .noise-overlay {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.03;
+      z-index: 9999;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    }
+
+    /* Custom cursor */
+    .cursor {
+      width: 20px;
+      height: 20px;
+      border: 1px solid var(--accent);
+      border-radius: 50%;
+      position: fixed;
+      pointer-events: none;
+      z-index: 9998;
+      transition: transform 0.15s ease, width 0.3s ease, height 0.3s ease;
+      transform: translate(-50%, -50%);
+    }
+
+    .cursor-dot {
+      width: 4px;
+      height: 4px;
+      background: var(--accent);
+      border-radius: 50%;
+      position: fixed;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+    }
+
+    /* Service card glow */
+    .service-card {
+      position: relative;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      background: linear-gradient(135deg, transparent 40%, rgba(201, 169, 98, 0.3) 50%, transparent 60%);
+      border-radius: inherit;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+      z-index: -1;
+    }
+
+    .service-card:hover::before {
+      opacity: 1;
+    }
+
+    /* Testimonial slider */
+    .testimonial-track {
+      display: flex;
+      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* Nav link hover */
+    .nav-link {
+      position: relative;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--accent);
+      transition: width 0.3s ease;
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    /* Project card hover */
+    .project-card {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-card img {
+      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .project-card:hover img {
+      transform: scale(1.05);
+    }
+
+    .project-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(5, 5, 5, 0.9) 0%, transparent 60%);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    .project-card:hover .project-overlay {
+      opacity: 1;
+    }
+
+    /* Stats number glow */
+    .stat-number {
+      text-shadow: 0 0 60px rgba(201, 169, 98, 0.3);
+    }
+
+    /* Focus states for accessibility */
+    button:focus-visible,
+    a:focus-visible,
+    input:focus-visible,
+    textarea:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    /* Mobile menu */
+    .mobile-menu {
+      transform: translateX(100%);
+      transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .mobile-menu.active {
+      transform: translateX(0);
+    }
+  </style>
+</head>
+<body>
+  <!-- Noise overlay -->
+  <div class="noise-overlay"></div>
+
+  <!-- Custom cursor -->
+  <div class="cursor hidden lg:block"></div>
+  <div class="cursor-dot hidden lg:block"></div>
+
+  <!-- Navigation -->
+  <nav class="fixed top-0 left-0 right-0 z-50 px-6 lg:px-12 py-6">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <a href="#" class="font-display font-bold text-xl tracking-tight gradient-text">
+        Gaurav P S
+      </a>
+      
+      <!-- Desktop Nav -->
+      <div class="hidden lg:flex items-center gap-12">
+        <a href="#companies" class="nav-link text-sm text-white/70 hover:text-white transition-colors font-body">Companies</a>
+        <a href="#about" class="nav-link text-sm text-white/70 hover:text-white transition-colors font-body">About</a>
+        <a href="#work" class="nav-link text-sm text-white/70 hover:text-white transition-colors font-body">Work</a>
+        <a href="#services" class="nav-link text-sm text-white/70 hover:text-white transition-colors font-body">Services</a>
+        <a href="#contact" class="btn-premium px-6 py-3 rounded-full text-sm font-medium text-dark-900">
+          <span>Get in Touch</span>
+        </a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button id="menuBtn" class="lg:hidden w-10 h-10 flex flex-col items-center justify-center gap-1.5" aria-label="Toggle menu">
+        <span class="w-6 h-0.5 bg-white transition-transform origin-center" id="menuLine1"></span>
+        <span class="w-6 h-0.5 bg-white transition-opacity" id="menuLine2"></span>
+        <span class="w-6 h-0.5 bg-white transition-transform origin-center" id="menuLine3"></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div id="mobileMenu" class="mobile-menu fixed inset-0 bg-dark-900/95 backdrop-blur-xl z-40 flex flex-col items-center justify-center gap-8 lg:hidden">
+    <a href="#companies" class="mobile-nav-link text-2xl font-display font-semibold text-white/80 hover:text-white">Companies</a>
+    <a href="#about" class="mobile-nav-link text-2xl font-display font-semibold text-white/80 hover:text-white">About</a>
+    <a href="#work" class="mobile-nav-link text-2xl font-display font-semibold text-white/80 hover:text-white">Work</a>
+    <a href="#services" class="mobile-nav-link text-2xl font-display font-semibold text-white/80 hover:text-white">Services</a>
+    <a href="#contact" class="mobile-nav-link text-2xl font-display font-semibold text-white/80 hover:text-white">Contact</a>
+  </div>
+
+  <!-- Hero Section -->
+  <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden" style="background-image: url(bg2.png); background-position: center; background-size: cover;">
+    <!-- <div class="hero-gradient"></div> -->
+     <!-- <img src="bg.png" /> -->
+    
+    <!-- Animated background shapes -->
+    <div class="absolute inset-0 overflow-hidden pointer-events-none">
+      <div class="absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-gradient-to-br from-accent-gold/5 to-transparent blur-3xl float"></div>
+      <div class="absolute bottom-1/4 right-1/4 w-80 h-80 rounded-full bg-gradient-to-br from-accent-copper/5 to-transparent blur-3xl float" style="animation-delay: -3s;"></div>
+    </div>
+
+    <div class="relative z-10 max-w-6xl mx-auto px-6 lg:px-12 text-center">
+      <div class="overflow-hidden mb-6">
+        <!--<p class="reveal text-sm lg:text-base font-body tracking-[0.3em] text-accent-gold uppercase">Entrepreneur & Founder</p>-->
+      </div>
+      
+      <h1 class="font-display font-bold text-5xl sm:text-6xl md:text-7xl leading-[0.9] mb-8">
+        <span class="reveal block overflow-hidden">Building Brands.</span>
+        <span class="reveal block overflow-hidden gradient-text">Creating Experiences.</span>
+      </h1>
+      
+      <p class="reveal text-lg md:text-xl text-white/60 max-w-2xl mx-auto mb-12 font-body leading-relaxed">
+        Founder of <span class="text-white">BrandFrame Studios</span> and Co-Founder of <span class="text-white">Amara Experiences</span>. 
+        Transforming visions into memorable experiences and helping brands scale with purpose.
+      </p>
+      
+      <div class="reveal flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="#work" class="btn-premium px-8 py-4 rounded-full text-base font-medium text-dark-900 w-full sm:w-auto">
+          <span>View My Work</span>
+        </a>
+        <a href="#contact" class="btn-outline px-8 py-4 rounded-full text-base font-medium text-white w-full sm:w-auto">
+          <span class="relative z-10">Work With Me</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Companies Section -->
+  <section id="companies" class="relative py-32 lg:py-48">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+      <div class="mb-20">
+        <p class="reveal text-sm tracking-[0.3em] text-accent-gold uppercase mb-4 font-body">Ventures</p>
+        <h2 class="reveal font-display font-bold text-4xl md:text-5xl lg:text-6xl">Companies I Built</h2>
+        <div class="line-reveal h-px bg-gradient-to-r from-accent-gold/50 to-transparent mt-8"></div>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-8">
+        <!-- Amara Experiences -->
+        <div class="reveal-left glass-card rounded-3xl p-8 lg:p-12 transition-all duration-500 group">
+          <div class="flex items-start justify-between mb-8">
+            <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-accent-gold/20 to-accent-copper/20 flex items-center justify-center">
+              <svg class="w-8 h-8 text-accent-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+              </svg>
+            </div>
+            <span class="text-xs text-white/40 tracking-widest uppercase">Est. 2022</span>
+          </div>
+          
+          <h3 class="font-display font-bold text-2xl lg:text-3xl mb-4 group-hover:text-accent-gold transition-colors">Amara Experiences</h3>
+          <p class="text-white/50 font-body leading-relaxed mb-8">
+            A premium event management company specializing in creating unforgettable experiences. 
+            From corporate events to luxury celebrations, we transform concepts into reality with meticulous attention to detail.
+          </p>
+          
+          <a href="https://amaraexperiences.in" target="_blank" rel="noopener noreferrer" 
+             class="inline-flex items-center gap-2 text-accent-gold hover:gap-4 transition-all">
+            <span class="text-sm font-medium">Visit Website</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+            </svg>
+          </a>
+        </div>
+
+        <!-- BrandFrame Studios -->
+        <div class="reveal-right glass-card rounded-3xl p-8 lg:p-12 transition-all duration-500 group">
+          <div class="flex items-start justify-between mb-8">
+            <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-accent-copper/20 to-accent-gold/20 flex items-center justify-center">
+              <svg class="w-8 h-8 text-accent-copper" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+              </svg>
+            </div>
+            <span class="text-xs text-white/40 tracking-widest uppercase">Est. 2023</span>
+          </div>
+          
+          <h3 class="font-display font-bold text-2xl lg:text-3xl mb-4 group-hover:text-accent-copper transition-colors">BrandFrame Studios</h3>
+          <p class="text-white/50 font-body leading-relaxed mb-8">
+            A digital marketing agency dedicated to helping brands grow their online presence. 
+            We combine strategy, creativity, and data-driven insights to deliver measurable results.
+          </p>
+          
+          <a href="https://brand-frame.vercel.app/" target="_blank" rel="noopener noreferrer" 
+             class="inline-flex items-center gap-2 text-accent-copper hover:gap-4 transition-all">
+            <span class="text-sm font-medium">Visit Website</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="relative py-32 lg:py-48 overflow-hidden">
+    <!-- Background accent -->
+    <div class="absolute right-0 top-0 w-1/2 h-full bg-gradient-to-l from-accent-gold/3 to-transparent pointer-events-none"></div>
+    
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+      <div class="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+        <!-- Image -->
+        <div class="reveal-left relative order-2 lg:order-1">
+          <div class="relative aspect-[4/5] rounded-3xl overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-br from-accent-gold/20 to-accent-copper/20"></div>
+
+            <img src="me.jpeg" />
+
+            <!--div class="absolute inset-0 flex items-center justify-center">
+              <div class="text-center">
+                <div class="w-32 h-32 rounded-full bg-gradient-to-br from-accent-gold to-accent-copper mx-auto mb-6 flex items-center justify-center">
+                  <span class="font-display font-bold text-4xl text-dark-900">F</span>
+                </div>
+                <p class="text-white/60 font-body">Founder Portrait</p>
+              </div>
+            </div-->
+          </div>
+          <!-- Decorative frame -->
+          <div class="absolute -bottom-6 -right-6 w-full h-full border border-accent-gold/20 rounded-3xl -z-10"></div>
+        </div>
+
+        <!-- Content -->
+        <div class="order-1 lg:order-2">
+          <p class="reveal text-sm tracking-[0.3em] text-accent-gold uppercase mb-4 font-body">About Me</p>
+          <h2 class="reveal font-display font-bold text-4xl md:text-5xl lg:text-6xl mb-8">
+            Turning Vision Into<br><span class="gradient-text">Reality</span>
+          </h2>
+          
+          <div class="space-y-6 text-white/60 font-body leading-relaxed">
+            <p class="reveal">
+              I'm an entrepreneur and digital creator with a passion for building brands that leave lasting impressions. 
+              As co-founder of two successful ventures, I've dedicated my career to bridging the gap between creative vision and strategic execution.
+            </p>
+            <p class="reveal">
+              My journey spans event management, digital marketing, brand strategy, and creative direction. 
+              I believe in the power of experiences—whether it's a meticulously planned event or a digital campaign that resonates with audiences.
+            </p>
+            <p class="reveal">
+              Every project I undertake is driven by a commitment to excellence, attention to detail, and a deep understanding of what makes brands connect with people.
+            </p>
+          </div>
+
+          <div class="reveal mt-12 grid grid-cols-2 gap-8">
+            <div>
+              <p class="font-display font-bold text-3xl lg:text-4xl gradient-text">2</p>
+              <p class="text-white/40 text-sm mt-1 font-body">Companies Founded</p>
+            </div>
+            <div>
+              <p class="font-display font-bold text-3xl lg:text-4xl gradient-text">5+</p>
+              <p class="text-white/40 text-sm mt-1 font-body">Years Experience</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Work Section -->
+  <section id="work" class="relative py-32 lg:py-48 bg-dark-800/50">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+      <div class="mb-20">
+        <p class="reveal text-sm tracking-[0.3em] text-accent-gold uppercase mb-4 font-body">Portfolio</p>
+        <h2 class="reveal font-display font-bold text-4xl md:text-5xl lg:text-6xl">Featured Work</h2>
+        <div class="line-reveal h-px bg-gradient-to-r from-accent-gold/50 to-transparent mt-8"></div>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Project 1 -->
+        <div class="reveal-scale project-card rounded-2xl overflow-hidden aspect-[4/5] group cursor-pointer">
+          <div class="absolute inset-0 bg-gradient-to-br from-accent-gold/30 to-accent-copper/30"></div>
+          <div class="absolute inset-0 flex flex-col items-center justify-center p-6 text-center">
+            <span class="text-xs tracking-widest text-white/40 uppercase mb-3">Event Management</span>
+            <h3 class="font-display font-bold text-xl lg:text-2xl mb-2">Corporate Summit 2024</h3>
+            <p class="text-white/50 text-sm font-body">Large-scale corporate event with 500+ attendees</p>
+          </div>
+          <div class="project-overlay flex items-end p-6">
+            <div class="flex items-center gap-2 text-accent-gold">
+              <span class="text-sm font-medium">View Project</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="reveal-scale project-card rounded-2xl overflow-hidden aspect-[4/5] group cursor-pointer" style="transition-delay: 0.1s;">
+          <div class="absolute inset-0 bg-gradient-to-br from-accent-copper/30 to-accent-gold/20"></div>
+          <div class="absolute inset-0 flex flex-col items-center justify-center p-6 text-center">
+            <span class="text-xs tracking-widest text-white/40 uppercase mb-3">Brand Strategy</span>
+            <h3 class="font-display font-bold text-xl lg:text-2xl mb-2">Luxury Resort Launch</h3>
+            <p class="text-white/50 text-sm font-body">Complete brand identity and digital presence</p>
+          </div>
+          <div class="project-overlay flex items-end p-6">
+            <div class="flex items-center gap-2 text-accent-copper">
+              <span class="text-sm font-medium">View Project</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="reveal-scale project-card rounded-2xl overflow-hidden aspect-[4/5] group cursor-pointer" style="transition-delay: 0.2s;">
+          <div class="absolute inset-0 bg-gradient-to-br from-white/10 to-accent-gold/20"></div>
+          <div class="absolute inset-0 flex flex-col items-center justify-center p-6 text-center">
+            <span class="text-xs tracking-widest text-white/40 uppercase mb-3">Digital Campaign</span>
+            <h3 class="font-display font-bold text-xl lg:text-2xl mb-2">E-commerce Growth</h3>
+            <p class="text-white/50 text-sm font-body">300% increase in online conversions</p>
+          </div>
+          <div class="project-overlay flex items-end p-6">
+            <div class="flex items-center gap-2 text-accent-gold">
+              <span class="text-sm font-medium">View Project</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 4 -->
+        <div class="reveal-scale project-card rounded-2xl overflow-hidden aspect-[4/5] group cursor-pointer" style="transition-delay: 0.3s;">
+          <div class="absolute inset-0 bg-gradient-to-br from-accent-gold/20 to-white/10"></div>
+          <div class="absolute inset-0 flex flex-col items-center justify-center p-6 text-center">
+            <span class="text-xs tracking-widest text-white/40 uppercase mb-3">Event Design</span>
+            <h3 class="font-display font-bold text-xl lg:text-2xl mb-2">Wedding Experience</h3>
+            <p class="text-white/50 text-sm font-body">Luxury destination wedding planning</p>
+          </div>
+          <div class="project-overlay flex items-end p-6">
+            <div class="flex items-center gap-2 text-accent-gold">
+              <span class="text-sm font-medium">View Project</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 5 -->
+        <div class="reveal-scale project-card rounded-2xl overflow-hidden aspect-[4/5] group cursor-pointer" style="transition-delay: 0.4s;">
+          <div class="absolute inset-0 bg-gradient-to-br from-accent-copper/20 to-accent-gold/30"></div>
+          <div class="absolute inset-0 flex flex-col items-center justify-center p-6 text-center">
+            <span class="text-xs tracking-widest text-white/40 uppercase mb-3">Web Design</span>
+            <h3 class="font-display font-bold text-xl lg:text-2xl mb-2">Restaurant Website</h3>
+            <p class="text-white/50 text-sm font-body">Modern web presence with online booking</p>
+          </div>
+          <div class="project-overlay flex items-end p-6">
+            <div class="flex items-center gap-2 text-accent-copper">
+              <span class="text-sm font-medium">View Project</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 6 -->
+        <div class="reveal-scale project-card rounded-2xl overflow-hidden aspect-[4/5] group cursor-pointer" style="transition-delay: 0.5s;">
+          <div class="absolute inset-0 bg-gradient-to-br from-white/5 to-accent-copper/30"></div>
+          <div class="absolute inset-0 flex flex-col items-center justify-center p-6 text-center">
+            <span class="text-xs tracking-widest text-white/40 uppercase mb-3">Social Media</span>
+            <h3 class="font-display font-bold text-xl lg:text-2xl mb-2">Influencer Campaign</h3>
+            <p class="text-white/50 text-sm font-body">Multi-platform brand awareness campaign</p>
+          </div>
+          <div class="project-overlay flex items-end p-6">
+            <div class="flex items-center gap-2 text-accent-gold">
+              <span class="text-sm font-medium">View Project</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="relative py-32 lg:py-48">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+      <div class="text-center mb-20">
+        <p class="reveal text-sm tracking-[0.3em] text-accent-gold uppercase mb-4 font-body">What I Do</p>
+        <h2 class="reveal font-display font-bold text-4xl md:text-5xl lg:text-6xl">Services</h2>
+        <div class="line-reveal h-px bg-gradient-to-r from-transparent via-accent-gold/50 to-transparent mt-8 max-w-md mx-auto"></div>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Service 1 -->
+        <div class="reveal-scale service-card glass-card rounded-2xl p-8 transition-all duration-500 group">
+          <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-accent-gold/20 to-accent-copper/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+            <svg class="w-7 h-7 text-accent-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+            </svg>
+          </div>
+          <h3 class="font-display font-bold text-xl mb-3 group-hover:text-accent-gold transition-colors">Brand Strategy</h3>
+          <p class="text-white/50 font-body text-sm leading-relaxed">
+            Defining brand positioning, messaging, and visual identity to create lasting market impact.
+          </p>
+        </div>
+
+        <!-- Service 2 -->
+        <div class="reveal-scale service-card glass-card rounded-2xl p-8 transition-all duration-500 group" style="transition-delay: 0.1s;">
+          <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-accent-copper/20 to-accent-gold/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+            <svg class="w-7 h-7 text-accent-copper" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"/>
+            </svg>
+          </div>
+          <h3 class="font-display font-bold text-xl mb-3 group-hover:text-accent-copper transition-colors">Digital Marketing</h3>
+          <p class="text-white/50 font-body text-sm leading-relaxed">
+            Performance-driven campaigns across social, search, and display to grow your audience.
+          </p>
+        </div>
+
+        <!-- Service 3 -->
+        <div class="reveal-scale service-card glass-card rounded-2xl p-8 transition-all duration-500 group" style="transition-delay: 0.2s;">
+          <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-accent-gold/20 to-accent-copper/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+            <svg class="w-7 h-7 text-accent-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+            </svg>
+          </div>
+          <h3 class="font-display font-bold text-xl mb-3 group-hover:text-accent-gold transition-colors">Event Management</h3>
+          <p class="text-white/50 font-body text-sm leading-relaxed">
+            End-to-end event planning and execution for corporate, social, and luxury experiences.
+          </p>
+        </div>
+
+        <!-- Service 4 -->
+        <div class="reveal-scale service-card glass-card rounded-2xl p-8 transition-all duration-500 group" style="transition-delay: 0.3s;">
+          <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-accent-copper/20 to-accent-gold/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+            <svg class="w-7 h-7 text-accent-copper" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 4V2m0 2v2m0-2h10M7 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2h-3M7 4v2m10-2v2m0-2V2m0 4H7m10 0h3M7 6H4m3 0v2m10-2v2m0 0h3m-3 0H7m10 0v2m0 0h3m-3 0H7m10 0v2m0 0h3m-3 0H7"/>
+            </svg>
+          </div>
+          <h3 class="font-display font-bold text-xl mb-3 group-hover:text-accent-copper transition-colors">Creative Direction</h3>
+          <p class="text-white/50 font-body text-sm leading-relaxed">
+            Guiding visual and conceptual creative decisions for campaigns and brand experiences.
+          </p>
+        </div>
+
+        <!-- Service 5 -->
+        <div class="reveal-scale service-card glass-card rounded-2xl p-8 transition-all duration-500 group md:col-span-2 lg:col-span-1" style="transition-delay: 0.4s;">
+          <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-accent-gold/20 to-accent-copper/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+            <svg class="w-7 h-7 text-accent-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+            </svg>
+          </div>
+          <h3 class="font-display font-bold text-xl mb-3 group-hover:text-accent-gold transition-colors">Web Design</h3>
+          <p class="text-white/50 font-body text-sm leading-relaxed">
+            Modern, responsive websites that convert visitors and elevate brand perception.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section id="stats" class="relative py-32 lg:py-48 bg-dark-800/50 overflow-hidden">
+    <!-- Background gradient -->
+    <div class="absolute inset-0 bg-gradient-to-r from-accent-gold/5 via-transparent to-accent-copper/5 pointer-events-none"></div>
+    
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 relative">
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+        <div class="reveal text-center">
+          <p class="stat-number font-display font-bold text-5xl lg:text-7xl gradient-text counter" data-target="50">0</p>
+          <p class="text-white/40 text-sm mt-2 font-body tracking-wider uppercase">Projects Completed</p>
+        </div>
+        <div class="reveal text-center" style="transition-delay: 0.1s;">
+          <p class="stat-number font-display font-bold text-5xl lg:text-7xl gradient-text counter" data-target="35">0</p>
+          <p class="text-white/40 text-sm mt-2 font-body tracking-wider uppercase">Clients Served</p>
+        </div>
+        <div class="reveal text-center" style="transition-delay: 0.2s;">
+          <p class="stat-number font-display font-bold text-5xl lg:text-7xl gradient-text counter" data-target="25">0</p>
+          <p class="text-white/40 text-sm mt-2 font-body tracking-wider uppercase">Events Managed</p>
+        </div>
+        <div class="reveal text-center" style="transition-delay: 0.3s;">
+          <p class="stat-number font-display font-bold text-5xl lg:text-7xl gradient-text counter" data-target="15">0</p>
+          <p class="text-white/40 text-sm mt-2 font-body tracking-wider uppercase">Brands Scaled</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section id="testimonials" class="relative py-32 lg:py-48">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+      <div class="text-center mb-20">
+        <p class="reveal text-sm tracking-[0.3em] text-accent-gold uppercase mb-4 font-body">Testimonials</p>
+        <h2 class="reveal font-display font-bold text-4xl md:text-5xl lg:text-6xl">What Clients Say</h2>
+      </div>
+
+      <div class="reveal relative max-w-4xl mx-auto">
+        <div class="overflow-hidden rounded-3xl">
+          <div id="testimonialTrack" class="testimonial-track">
+            <!-- Testimonial 1 -->
+            <div class="min-w-full p-8 lg:p-12 glass-card">
+              <svg class="w-10 h-10 text-accent-gold/30 mb-6" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+              </svg>
+              <p class="text-xl lg:text-2xl font-body text-white/80 leading-relaxed mb-8">
+                "Working with them transformed our brand presence completely. The attention to detail and strategic thinking exceeded all expectations. Our events have never been more impactful."
+              </p>
+              <div class="flex items-center gap-4">
+                <div class="w-12 h-12 rounded-full bg-gradient-to-br from-accent-gold to-accent-copper flex items-center justify-center">
+                  <span class="font-display font-bold text-dark-900">R</span>
+                </div>
+                <div>
+                  <p class="font-display font-semibold">Rahul Sharma</p>
+                  <p class="text-white/40 text-sm font-body">CEO, TechStart India</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Testimonial 2 -->
+            <div class="min-w-full p-8 lg:p-12 glass-card">
+              <svg class="w-10 h-10 text-accent-gold/30 mb-6" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+              </svg>
+              <p class="text-xl lg:text-2xl font-body text-white/80 leading-relaxed mb-8">
+                "The digital marketing strategy they developed for us resulted in a 300% increase in conversions. Their understanding of brand positioning is exceptional."
+              </p>
+              <div class="flex items-center gap-4">
+                <div class="w-12 h-12 rounded-full bg-gradient-to-br from-accent-copper to-accent-gold flex items-center justify-center">
+                  <span class="font-display font-bold text-dark-900">P</span>
+                </div>
+                <div>
+                  <p class="font-display font-semibold">Priya Patel</p>
+                  <p class="text-white/40 text-sm font-body">Founder, Luxe Interiors</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Testimonial 3 -->
+            <div class="min-w-full p-8 lg:p-12 glass-card">
+              <svg class="w-10 h-10 text-accent-gold/30 mb-6" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+              </svg>
+              <p class="text-xl lg:text-2xl font-body text-white/80 leading-relaxed mb-8">
+                "Our wedding was absolutely magical. Every detail was perfect, and the team went above and beyond to make our special day unforgettable. Highly recommend Amara Experiences."
+              </p>
+              <div class="flex items-center gap-4">
+                <div class="w-12 h-12 rounded-full bg-gradient-to-br from-accent-gold to-accent-copper flex items-center justify-center">
+                  <span class="font-display font-bold text-dark-900">A</span>
+                </div>
+                <div>
+                  <p class="font-display font-semibold">Aditya & Meera</p>
+                  <p class="text-white/40 text-sm font-body">Wedding Clients, Mumbai</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Navigation dots -->
+        <div class="flex items-center justify-center gap-3 mt-8">
+          <button class="testimonial-dot w-2 h-2 rounded-full bg-accent-gold transition-all" data-index="0" aria-label="Show testimonial 1"></button>
+          <button class="testimonial-dot w-2 h-2 rounded-full bg-white/20 hover:bg-white/40 transition-all" data-index="1" aria-label="Show testimonial 2"></button>
+          <button class="testimonial-dot w-2 h-2 rounded-full bg-white/20 hover:bg-white/40 transition-all" data-index="2" aria-label="Show testimonial 3"></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="relative py-32 lg:py-48 bg-dark-800/50">
+    <!-- Background accent -->
+    <div class="absolute inset-0 overflow-hidden pointer-events-none">
+      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] rounded-full bg-gradient-to-b from-accent-gold/5 to-transparent blur-3xl"></div>
+    </div>
+
+    <div class="max-w-4xl mx-auto px-6 lg:px-12 relative">
+      <div class="text-center mb-16">
+        <p class="reveal text-sm tracking-[0.3em] text-accent-gold uppercase mb-4 font-body">Get in Touch</p>
+        <h2 class="reveal font-display font-bold text-4xl md:text-5xl lg:text-6xl mb-6">
+          Let's Build Something<br><span class="gradient-text">Great Together</span>
+        </h2>
+        <p class="reveal text-white/50 font-body max-w-xl mx-auto">
+          Have a project in mind? Let's discuss how we can work together to bring your vision to life.
+        </p>
+      </div>
+
+      <form class="reveal glass-card rounded-3xl p-8 lg:p-12 space-y-6">
+        <div class="grid md:grid-cols-2 gap-6">
+          <div>
+            <label for="name" class="block text-sm text-white/60 mb-2 font-body">Name</label>
+            <input type="text" id="name" name="name" required
+                   class="w-full bg-dark-700/50 border border-white/10 rounded-xl px-4 py-3 text-white font-body focus:border-accent-gold focus:outline-none transition-colors"
+                   placeholder="Your name">
+          </div>
+          <div>
+            <label for="email" class="block text-sm text-white/60 mb-2 font-body">Email</label>
+            <input type="email" id="email" name="email" required
+                   class="w-full bg-dark-700/50 border border-white/10 rounded-xl px-4 py-3 text-white font-body focus:border-accent-gold focus:outline-none transition-colors"
+                   placeholder="your@email.com">
+          </div>
+        </div>
+        
+        <div>
+          <label for="subject" class="block text-sm text-white/60 mb-2 font-body">Subject</label>
+          <input type="text" id="subject" name="subject" required
+                 class="w-full bg-dark-700/50 border border-white/10 rounded-xl px-4 py-3 text-white font-body focus:border-accent-gold focus:outline-none transition-colors"
+                 placeholder="Project inquiry">
+        </div>
+        
+        <div>
+          <label for="message" class="block text-sm text-white/60 mb-2 font-body">Message</label>
+          <textarea id="message" name="message" rows="5" required
+                    class="w-full bg-dark-700/50 border border-white/10 rounded-xl px-4 py-3 text-white font-body focus:border-accent-gold focus:outline-none transition-colors resize-none"
+                    placeholder="Tell me about your project..."></textarea>
+        </div>
+
+        <button type="submit" class="btn-premium w-full px-8 py-4 rounded-full text-base font-medium text-dark-900">
+          <span>Send Message</span>
+        </button>
+      </form>
+
+      <!-- Social Links -->
+      <div class="reveal flex items-center justify-center gap-6 mt-12">
+        <a href="#" class="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center text-white/40 hover:border-accent-gold hover:text-accent-gold transition-all" aria-label="LinkedIn">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+          </svg>
+        </a>
+        <a href="#" class="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center text-white/40 hover:border-accent-gold hover:text-accent-gold transition-all" aria-label="Twitter">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+          </svg>
+        </a>
+        <a href="#" class="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center text-white/40 hover:border-accent-gold hover:text-accent-gold transition-all" aria-label="Instagram">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="relative py-12 border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+      <div class="flex flex-col lg:flex-row items-center justify-between gap-8">
+        <div class="text-center lg:text-left">
+          <a href="#" class="font-display font-bold text-xl tracking-tight gradient-text">GAURAV P S</a>
+          <p class="text-white/40 text-sm mt-2 font-body">Entrepreneur & Digital Creator</p>
+        </div>
+
+        <div class="flex flex-wrap items-center justify-center gap-8">
+          <a href="https://amaraexperiences.in" target="_blank" rel="noopener noreferrer" class="text-sm text-white/40 hover:text-white transition-colors font-body">Amara Experiences</a>
+          <a href="https://brand-frame.vercel.app/" target="_blank" rel="noopener noreferrer" class="text-sm text-white/40 hover:text-white transition-colors font-body">BrandFrame Studios</a>
+        </div>
+
+        <p class="text-sm text-white/30 font-body">2024 All Rights Reserved</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Initialize GSAP
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Custom cursor
+    const cursor = document.querySelector('.cursor');
+    const cursorDot = document.querySelector('.cursor-dot');
+    let mouseX = 0;
+    let mouseY = 0;
+    let cursorX = 0;
+    let cursorY = 0;
+
+    if (cursor && cursorDot) {
+      document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+        cursorDot.style.left = mouseX + 'px';
+        cursorDot.style.top = mouseY + 'px';
+      });
+
+      function animateCursor() {
+        cursorX += (mouseX - cursorX) * 0.1;
+        cursorY += (mouseY - cursorY) * 0.1;
+        cursor.style.left = cursorX + 'px';
+        cursor.style.top = cursorY + 'px';
+        requestAnimationFrame(animateCursor);
+      }
+      animateCursor();
+
+      // Cursor hover effects
+      const hoverElements = document.querySelectorAll('a, button, .project-card');
+      hoverElements.forEach(el => {
+        el.addEventListener('mouseenter', () => {
+          cursor.style.width = '40px';
+          cursor.style.height = '40px';
+          cursor.style.borderColor = 'var(--accent)';
+        });
+        el.addEventListener('mouseleave', () => {
+          cursor.style.width = '20px';
+          cursor.style.height = '20px';
+          cursor.style.borderColor = 'var(--accent)';
+        });
+      });
+    }
+
+    // Mobile menu
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const menuLine1 = document.getElementById('menuLine1');
+    const menuLine2 = document.getElementById('menuLine2');
+    const menuLine3 = document.getElementById('menuLine3');
+    const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+    let menuOpen = false;
+
+    if (menuBtn && mobileMenu) {
+      menuBtn.addEventListener('click', () => {
+        menuOpen = !menuOpen;
+        mobileMenu.classList.toggle('active');
+        
+        if (menuOpen) {
+          menuLine1.style.transform = 'rotate(45deg) translate(4px, 4px)';
+          menuLine2.style.opacity = '0';
+          menuLine3.style.transform = 'rotate(-45deg) translate(4px, -4px)';
+        } else {
+          menuLine1.style.transform = 'none';
+          menuLine2.style.opacity = '1';
+          menuLine3.style.transform = 'none';
+        }
+      });
+
+      mobileNavLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          menuOpen = false;
+          mobileMenu.classList.remove('active');
+          menuLine1.style.transform = 'none';
+          menuLine2.style.opacity = '1';
+          menuLine3.style.transform = 'none';
+        });
+      });
+    }
+
+    // Scroll reveal animations
+    const reveals = document.querySelectorAll('.reveal');
+    const revealsLeft = document.querySelectorAll('.reveal-left');
+    const revealsRight = document.querySelectorAll('.reveal-right');
+    const revealsScale = document.querySelectorAll('.reveal-scale');
+    const lineReveals = document.querySelectorAll('.line-reveal');
+
+    // Check for reduced motion preference
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (!prefersReducedMotion) {
+      reveals.forEach(el => {
+        gsap.to(el, {
+          scrollTrigger: {
+            trigger: el,
+            start: 'top 85%',
+            toggleActions: 'play none none none'
+          },
+          y: 0,
+          opacity: 1,
+          duration: 1,
+          ease: 'power3.out'
+        });
+      });
+
+      revealsLeft.forEach(el => {
+        gsap.to(el, {
+          scrollTrigger: {
+            trigger: el,
+            start: 'top 85%',
+            toggleActions: 'play none none none'
+          },
+          x: 0,
+          opacity: 1,
+          duration: 1,
+          ease: 'power3.out'
+        });
+      });
+
+      revealsRight.forEach(el => {
+        gsap.to(el, {
+          scrollTrigger: {
+            trigger: el,
+            start: 'top 85%',
+            toggleActions: 'play none none none'
+          },
+          x: 0,
+          opacity: 1,
+          duration: 1,
+          ease: 'power3.out'
+        });
+      });
+
+      revealsScale.forEach(el => {
+        gsap.to(el, {
+          scrollTrigger: {
+            trigger: el,
+            start: 'top 85%',
+            toggleActions: 'play none none none'
+          },
+          scale: 1,
+          opacity: 1,
+          duration: 0.8,
+          ease: 'power2.out'
+        });
+      });
+
+      lineReveals.forEach(el => {
+        ScrollTrigger.create({
+          trigger: el,
+          start: 'top 85%',
+          onEnter: () => el.classList.add('active')
+        });
+      });
+    } else {
+      // If reduced motion, make everything visible immediately
+      document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale').forEach(el => {
+        el.style.opacity = '1';
+        el.style.transform = 'none';
+      });
+      lineReveals.forEach(el => el.classList.add('active'));
+    }
+
+    // Counter animation
+    const counters = document.querySelectorAll('.counter');
+    
+    if (!prefersReducedMotion) {
+      counters.forEach(counter => {
+        const target = parseInt(counter.getAttribute('data-target'));
+        
+        ScrollTrigger.create({
+          trigger: counter,
+          start: 'top 85%',
+          onEnter: () => {
+            gsap.to(counter, {
+              textContent: target,
+              duration: 2,
+              ease: 'power2.out',
+              snap: { textContent: 1 },
+              onUpdate: function() {
+                counter.textContent = Math.round(this.targets()[0].textContent) + '+';
+              }
+            });
+          },
+          once: true
+        });
+      });
+    } else {
+      counters.forEach(counter => {
+        counter.textContent = counter.getAttribute('data-target') + '+';
+      });
+    }
+
+    // Testimonial slider
+    const testimonialTrack = document.getElementById('testimonialTrack');
+    const testimonialDots = document.querySelectorAll('.testimonial-dot');
+    let currentSlide = 0;
+
+    function goToSlide(index) {
+      currentSlide = index;
+      if (testimonialTrack) {
+        testimonialTrack.style.transform = `translateX(-${index * 100}%)`;
+      }
+      testimonialDots.forEach((dot, i) => {
+        dot.classList.toggle('bg-accent-gold', i === index);
+        dot.classList.toggle('bg-white/20', i !== index);
+      });
+    }
+
+    testimonialDots.forEach((dot, i) => {
+      dot.addEventListener('click', () => goToSlide(i));
+    });
+
+    // Auto-advance testimonials
+    if (!prefersReducedMotion && testimonialTrack) {
+      setInterval(() => {
+        currentSlide = (currentSlide + 1) % 3;
+        goToSlide(currentSlide);
+      }, 5000);
+    }
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: prefersReducedMotion ? 'auto' : 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Parallax effect for floating elements
+    if (!prefersReducedMotion) {
+      const floatElements = document.querySelectorAll('.float');
+      floatElements.forEach(el => {
+        gsap.to(el, {
+          scrollTrigger: {
+            trigger: el,
+            start: 'top bottom',
+            end: 'bottom top',
+            scrub: 1
+          },
+          y: -50,
+          ease: 'none'
+        });
+      });
+    }
+
+    // Hero text stagger animation
+    if (!prefersReducedMotion) {
+      gsap.from('#hero h1 span', {
+        y: 100,
+        opacity: 0,
+        duration: 1,
+        stagger: 0.2,
+        ease: 'power3.out',
+        delay: 0.3
+      });
+    }
+
+    // Form submission
+    const form = document.querySelector('form');
+    if (form) {
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        // Here you would typically send the form data to a server
+        alert('Thank you for your message! I will get back to you soon.');
+        form.reset();
+      });
+    }
+
+    // Nav background on scroll
+    const nav = document.querySelector('nav');
+    
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 100) {
+        nav.style.background = 'rgba(5, 5, 5, 0.8)';
+        nav.style.backdropFilter = 'blur(20px)';
+      } else {
+        nav.style.background = 'transparent';
+        nav.style.backdropFilter = 'none';
+      }
+    });
+  </script>
+</body>
+</html>
